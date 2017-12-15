@@ -77,6 +77,15 @@ public class ShiroConfig {
         ShiroRealm shiroRealm = new ShiroRealm();
         return shiroRealm;
     }
+    /**
+     * EhCacheManager，缓存管理，用户登陆成功后，把用户信息和权限信息缓存起来，
+     * 然后每次用户请求时，放入用户的session中，如果不设置这个bean，每个请求都会查询一次数据库。
+     */
+	@Bean(name = "ehCacheManager")
+	@DependsOn("lifecycleBeanPostProcessor")
+	public EhCacheManager ehCacheManager() {
+		return new EhCacheManager();
+	}
 
 }
 
