@@ -1,7 +1,9 @@
 package cn.hello.boot.shiro;
 
+import org.apache.log4j.Logger;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.apache.shiro.mgt.SecurityManager;
@@ -12,6 +14,7 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
+    Logger logger = Logger.getLogger(ShiroConfig.class);
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
      * 注意：单独一个ShiroFilterFactoryBean配置是或报错的，以为在
@@ -49,12 +52,12 @@ public class ShiroConfig {
 
         filterChainDefinitionMap.put("/add", "perms[权限添加]");
 
-        // <!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
-        // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
+        // 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 :这是一个坑呢，一不小心代码就不好使了
+        // authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问
         filterChainDefinitionMap.put("/**", "authc");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-        System.out.println("Shiro拦截器工厂类注入成功");
+        logger.info("------------------Shiro拦截器工厂类注入成功------------------");
         return shiroFilterFactoryBean;
     }
 
@@ -62,19 +65,18 @@ public class ShiroConfig {
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         // 设置realm.
-        securityManager.setRealm(ShiroRealm());
+        securityManager.setRealm(shiroRealm());
         return securityManager;
     }
 
     /**
-     * 身份认证realm; (这个需要自己写，账号密码校验；权限等)
-     *
-     * @return
+     * 身份认证realm(这个需要自己写，账号密码校验；权限等)
      */
     @Bean
-    public ShiroRealm ShiroRealm() {
+    public ShiroRealm shiroRealm() {
         ShiroRealm shiroRealm = new ShiroRealm();
         return shiroRealm;
     }
 
 }
+
