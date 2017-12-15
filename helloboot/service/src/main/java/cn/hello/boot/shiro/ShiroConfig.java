@@ -82,7 +82,6 @@ public class ShiroConfig {
      * 然后每次用户请求时，放入用户的session中，如果不设置这个bean，每个请求都会查询一次数据库。
      */
 	@Bean(name = "ehCacheManager")
-	@DependsOn("lifecycleBeanPostProcessor")
 	public EhCacheManager ehCacheManager() {
 		return new EhCacheManager();
 	}
