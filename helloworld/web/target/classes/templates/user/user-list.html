@@ -8,7 +8,7 @@
       <form class="layui-form" style="padding-bottom: 10px;text-align: left;">
 	     用户名：
 	  <div class="layui-inline">
-	    <input class="layui-input" type="text" name="userName" autocomplete="off" placeholder="用户名">
+	    <input class="layui-input" type="text" name="userName" autocomplete="off" placeholder="用户名"/>
 	  </div>
 	  	状态：
  	 <div class="layui-inline">
@@ -18,7 +18,7 @@
 		       <option value="0">禁用</option>
 		    </select>
  	  </div>
-	 <button class="layui-btn"  lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
+	 <button class="layui-btn"  lay-submit="" lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
 </form>
 
        <xblock>
@@ -30,17 +30,19 @@
   <thead>
     <tr>
       <th lay-data="{checkbox:true, fixed: true}"></th>
-      <th lay-data="{field:'userName', width:150}">用户名</th>
-      <th lay-data="{field:'userState', width:80,templet:'#state-tpl'}">状态</th>
-      <th lay-data="{field:'createTime', width:177,sort: true,}">创建时间</th>
-      <th lay-data="{field:'userDesc', width:200}">描述</th>
+      <th lay-data="{field:'username', width:150}">用户名</th>
+      <th lay-data="{field:'telephone', width:150}">电话</th>
+      <th lay-data="{field:'email', width:150}">邮箱</th>
+		<th lay-data="{field:'createTime', width:177,sort: true}">创建时间</th>
+		<th lay-data="{field:'lastLoginTime', width:177,sort: true}">上次登录</th>
+		<th lay-data="{field:'status', width:80,templet:'#state-tpl'}">状态</th>
       <th lay-data="{fixed: 'right', width:260, align:'center', toolbar: '#row-bar'}">操作</th>
     </tr>
   </thead>
 </table>
 
 		<script type="text/html" id="state-tpl">
- 					 {{#  if(d.userState == 1){ }}
+ 					 {{#  if(d.status== 1){ }}
    						 <font color='green'>启用</font>
  						 {{#  } else { }}
     					<font color='red'>禁止</font>
