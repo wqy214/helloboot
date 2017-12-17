@@ -14,4 +14,6 @@ public interface UserService {
 
 
     PageBean pageQuery(PageBean pageBean);
+
+    void save(User user);
 }

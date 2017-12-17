@@ -38,5 +38,10 @@ public class UserServiceImpl implements UserService {
         return pageBean;
     }
 
+    @Override
+    public void save(User user) {
+        userDao.insert(user);
+    }
+
 
 }
