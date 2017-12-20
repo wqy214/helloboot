@@ -1,5 +1,7 @@
 package cn.hello.world.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,13 +16,15 @@ public class User implements Serializable {
 
     private String email;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") //输出日期格式化
     private Date createTime;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss") //输出日期格式化
     private Date lastLoginTime;
 
     private Integer status;
 
-    private Integer[] roleIds;
+    private Long[] roleIds;
 
     private static final long serialVersionUID = 1L;
 
@@ -88,11 +92,11 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public Integer[] getRoleIds() {
+    public Long[] getRoleIds() {
         return roleIds;
     }
 
-    public void setRoleIds(Integer[] roleIds) {
+    public void setRoleIds(Long[] roleIds) {
         this.roleIds = roleIds;
     }
 

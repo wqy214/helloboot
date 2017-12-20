@@ -93,10 +93,10 @@
 		
 		<!-- 指定数据库表 -->
 		<!-- 用户模块表  -->
-		<table schema="" tableName="tb_permission" domainObjectName="Permission"/>
-		<table schema="" tableName="tb_role" domainObjectName="Role"/>
+		<!--<table schema="" tableName="tb_permission" domainObjectName="Permission"/>-->
+		<!--<table schema="" tableName="tb_role" domainObjectName="Role"/>-->
 		<table schema="" tableName="tb_role_permission" domainObjectName="RolePermission"/>
-		<table schema="" tableName="tb_user" domainObjectName="User"/>
+		<!--<table schema="" tableName="tb_user" domainObjectName="User"/>-->
 		<table schema="" tableName="tb_user_role" domainObjectName="UserRole"/>
 
 		<!--&lt;!&ndash; 商品模块表 &ndash;&gt;

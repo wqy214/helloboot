@@ -62,12 +62,6 @@ public class UserController {
 
             userService.save(user);
 
-            Integer[] roleIds = user.getRoleIds();
-
-            if (!ArrayUtils.isEmpty(roleIds)) {
-                roleService.saveUserRoles(user.getId(), roleIds);
-            }
-
             return Rest.ok();
         }
 //
