@@ -89,6 +89,12 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+        <!--getter、setter-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
         <!--热部署-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.world</groupId>-->
