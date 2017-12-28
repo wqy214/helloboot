@@ -14,7 +14,7 @@
         <!--滚动 基于时间(根据文件名时间的最小粒度)-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_FILE}-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!--单位也是之前定义的最小时间粒度-->
+            <!--单位（个）-->
             <maxHistory>15</maxHistory>
         </rollingPolicy>
     </appender>
